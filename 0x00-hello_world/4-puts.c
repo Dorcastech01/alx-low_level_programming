@@ -1,11 +1,12 @@
 #include <stdio.h>
 /**
  * main - contains a void function
- * Description: a c program that writes a string 
+ *
+ * Description: writing a string.
  * Return: 0
  */
 int main(void)
 {
-puts("\"Programming is like building a multilingual puzzle");
-return (0);
+	puts("\"Programming is like building a multilingual puzzle");
+	return (0);
 }
