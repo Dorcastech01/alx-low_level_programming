@@ -1,7 +1,8 @@
 #include <stdio.h>
 /**
- * main block of code is present
- * Return is: 0
+ * main - contains a void function
+ * Description: a c program that writes a string 
+ * Return: 0
  */
 int main(void)
 {
