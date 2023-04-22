@@ -7,24 +7,29 @@
  */
 int main(void)
 {
-	int c;
-	int d = 0;
+	int a;
+	int t = 0;
 
-	for (c = 0; d < 10; d++)
+	while (t < 10)
 	{
-		for (c < 10; d < 10; c++)
+		a = 0;
+		while (a < 10)
 		{
-			if (d != c && d < c)
+			if (t != a && t < a)
 			{
-				putchar('0' + d);
-				putchar('0' + c);
-				if ((c + d) != 17)
+				putchar('0' + t);
+				putchar('0' + a);
+
+				if (a + t != 17)
 				{
 					putchar(',');
 					putchar(' ');
 				}
 			}
+
+			a++;
 		}
+		t++;
 	}
 	putchar('\n');
 	return (0);
