@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 /**
  * main - main block
  * Description: printing numbers with comma
@@ -11,8 +12,9 @@ int main(void)
 	while (d <= 9)
 	{
 		putchar(48 + d);
-		putchar(',');
 		d++;
+		putchar(',');
+		putchar(' ');
 	}
 	return (0);
 }
