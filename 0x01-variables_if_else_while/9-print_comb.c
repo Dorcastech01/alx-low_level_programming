@@ -9,10 +9,9 @@ int main(void)
 {
 	int d = 0;
 
-	while (d <= 9)
+	for (d = 0; d <= 9; d++)
 	{
 		putchar(48 + d);
-		d++;
 		putchar(',');
 		putchar(' ');
 	}
