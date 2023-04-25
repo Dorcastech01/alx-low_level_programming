@@ -9,7 +9,7 @@ int _abs(int a)
 {
 	int t;
 
-	if (a < 0)
+	if (a >= 48 && a <= 57)
 	{
 		t = a * -1;
 		_putchar(t);
