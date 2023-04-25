@@ -9,11 +9,9 @@ int _abs(int a)
 {
 	int t;
 
-	if (a >= 48 && a <= 57)
-	{
-		t = a * -1;
+	t = a * -1;
+	if (a <= 0)
 		_putchar(t);
-	}
 	else
 		_putchar(a);
 	return (0);
