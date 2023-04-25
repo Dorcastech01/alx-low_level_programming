@@ -9,10 +9,12 @@
 int main(void)
 {
 	int i = 0;
-	char *ch = "_putchar";
+	char ch[9] = "_putchar";
 
-	if (i == 0)
-		putchar(*ch);
+	while (i <= 8)
+		putchar(ch[i]);
+		i++;
+
 	putchar('\n');
 	return (0);
 }
