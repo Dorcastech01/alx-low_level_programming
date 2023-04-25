@@ -12,8 +12,10 @@ int main(void)
 	char ch[9] = "_putchar";
 
 	while (i <= 8)
+	{
 		putchar(ch[i]);
 		i++;
+	}
 
 	putchar('\n');
 	return (0);
