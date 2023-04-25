@@ -1,0 +1,14 @@
+#include "main.h"
+/**
+ * print_last_digit - main block
+ * @a: user input
+ * Description: script to print last digit
+ * Return: last digit of number
+ */
+int print_last_digit(int a)
+{
+	int n;
+
+	n = a % 10;
+	return (n);
+}
