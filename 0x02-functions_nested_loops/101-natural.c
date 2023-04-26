@@ -20,12 +20,12 @@ int main(void)
 	{
 		if ((c % 3) == 0)
 		{
-			a = a + 1;
+			a = a + c;
 		}
 
 		else if ((c % 5) == 0)
 		{
-			b = b + 1;
+			b = b + c;
 		}
 	}
 	result = a + b;
