@@ -11,11 +11,7 @@ int print_last_digit(int a)
 	int j;
 
 	n = a % 10;
-	j = 0;
-	while (j < 2)
-	{
-		_putchar(n);
-		j++;
-	}
-	return (0);
+	j = a % 10;
+
+	return (n + j);
 }
