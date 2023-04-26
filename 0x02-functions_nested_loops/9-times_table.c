@@ -9,19 +9,31 @@ void times_table(void)
 {
 	int a;
 	int b;
+	int c;
 
-	a = 0;
-	while (a >= 48 && a <= 57)
+	for (a = 0; a < 10; a++)
 	{
-		b = 0;
-		while (b >= 48 && b <= 57)
+		for (b = 0; b < 10; b++)
 		{
-			_putchar(a * b);
-			_putchar(',');
-			_putchar(' ');
-			b++;
+			c = b * a;
+			if (b == 0)
+			{
+				_putchar(c + '0');
+			}
+			if (c < 10 && b != 0)
+			{
+				_putchar(',');
+				_putchar(' ');
+				_putchar(' ');
+				_putchar(c + '0');
+			} else if (c >= 10)
+			{
+				_putchar(',');
+				_putchar(' ');
+				_putchar((c / 10) + '0');
+				_putchar((c % 10) + '0');
+			}
 		}
 		_putchar('\n');
-		a++;
 	}
 }
