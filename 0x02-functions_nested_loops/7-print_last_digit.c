@@ -1,34 +1,22 @@
 #include "main.h"
 /**
  * print_last_digit - main block
- * @a: user input
+ * @p: user input
  * Description: script to print last digit
  * Return: last digit of number
  */
-int print_last_digit(int a)
+int print_last_digit(int p)
 {
-	int n;
-	int j;
+	int a;
 
-	n = a % 10;
-	j = 0;
+	if (p < 0)
+		p = p * -1;
 
-	if (a <= 0)
-	{
+	a = p % 10;
+
+	if (a < 0)
 		a = a * -1;
-		while (j < 2)
-		{
-			return (n);
-			j++;
-		}
-	}
-	else if (a > 0)
-	{
-		while (j < 2)
-		{
-			return (n);
-			j++;
-		}
-	}
-	return (n);
+	_putchar(a + '0');
+
+	return (a);
 }
