@@ -13,5 +13,6 @@ int print_last_digit(int a)
 	n = a % 10;
 	j = a % 10;
 
-	return (n + j);
+	return (n);
+	return (j);
 }
