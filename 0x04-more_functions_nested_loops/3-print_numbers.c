@@ -1,9 +1,7 @@
 #include "main.h"
-#include <unistd.h>
 /**
  * print_numbers - main block
  * Description: printing numbers
- * Return: void
  */
 void print_numbers(void)
 {
