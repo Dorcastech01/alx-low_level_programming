@@ -16,7 +16,7 @@ void print_square(int size)
 	}
 	else
 	{
-		for (t = 1; t < size; t++)
+		for (t = 0; t < size; t++)
 		{
 			for (e = 0; e < size; e++)
 			{
