@@ -3,6 +3,7 @@
  * print_line - main block
  *@n: user input
  *Description: printing a straight line
+ *Return: 0
  */
 void print_line(int n)
 {
@@ -14,8 +15,7 @@ void print_line(int n)
 	}
 	else
 	{
-		t = 0;
-		for (t = 0; t <= n; t++)
+		for (t = 1; t <= n; t++)
 		{
 			_putchar('_');
 		}
