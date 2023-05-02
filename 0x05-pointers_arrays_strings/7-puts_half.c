@@ -12,10 +12,11 @@ void puts_half(char *str)
 	j = 0;
 	while (str[j])
 	{
-		if (j % 2 == 0)
+		j++;
+		if (str[j] % 2 == 0)
 		{
-			a = j % 2;
-			for (a = j % 2; a <= j; a++)
+			a = str[j] % 2;
+			for (a = str[j] % 2; a <= j; a++)
 			{
 				_putchar(str[a]);
 			}
@@ -25,6 +26,5 @@ void puts_half(char *str)
 			a = j % 2;
 			_putchar(str[a]);
 		}
-		j++;
 	}
 }
