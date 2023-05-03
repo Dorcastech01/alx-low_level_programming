@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * print_array - main block
  * @a: user input
@@ -8,16 +9,14 @@
  */
 void print_array(int *a, int n)
 {
-	n = 0;
-	while (a[n])
-	{
-		n++;
-	}
+	int e;
 
-	for (n = 0; a[n] != 0; n++)
+	for (e = 0; e < n; e++)
 	{
-		printf("a[n]");
-		printf(", ");
+		if (e == 0)
+			printf("%d", a[e]);
+		else
+			printf(", %d", a[e]);
 	}
-	putchar('\n');
+		printf("\n");
 }
