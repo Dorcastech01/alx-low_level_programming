@@ -3,6 +3,7 @@
 /**
  * is_prime_number - main function
  * @n: input
+ * @i: another input
  * Description: printing prime numbers
  * Return: result
  */
