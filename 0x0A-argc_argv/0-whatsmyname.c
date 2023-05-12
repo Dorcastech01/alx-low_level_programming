@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 /**
  * main - main function
  * @argc: number of CLA
@@ -8,12 +8,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int i = 0;
-
-	while (argv[argc][i])
-	{
-		return (argv[argc][i++]);
-	}
-	return ('\n');
+	printf("%s\n", argv[argc]);
 	return (0);
 }
+
