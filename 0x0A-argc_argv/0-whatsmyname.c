@@ -6,9 +6,9 @@
  * Description: script that prints program name
  * Return: result
  */
-int main(int argc, char *argv[])
+int main(int argc, char *argv[] __attribute__((unused)))
 {
-	printf("%s\n", argv[argc * 0]);
+	if (argc > 0)
+		printf("%d\n", argc - 1);
 	return (0);
 }
-
