@@ -18,7 +18,7 @@ char **strtow(char *str)
 	int wordCount, strLength, wordLength;
 	char **words;
 
-	if (str == NULL || strcmp(str, "") == 0)
+	if (str == NULL || strcmp(str, " ") == 0)
 	{
 		return (NULL);
 	}
