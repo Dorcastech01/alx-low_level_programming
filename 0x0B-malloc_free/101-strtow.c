@@ -4,76 +4,93 @@
 #include <string.h>
 #define MAX_WORD_LENGTH 100
 /**
- * strtow - main function
+ * word_count - test function
  * @str: arg
  * Description: a function that splits a string into words
  * Return: result
  */
-
-char **strtow(char *str);
-
-char **strtow(char *str)
+int word_count(char *str)
 {
-	int i, j, k, m;
-	int wordCount, strLength, wordLength;
-	char **words;
+	int e, r, i;
 
-	if (str == NULL || (strcmp(str, "") == 0 && strcmp(str, " ") == 0))
-	{
-		return (NULL);
-	}
-	wordCount = 0;
-	strLength = strlen(str);
-	words = NULL;
-
-	for (i = 0; i < strLength; i++)
-	{
-		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
-		{
-			wordCount++;
-		}
-	}
-	words = (char **)malloc((wordCount + 1) * sizeof(char *));
-
-	if (words == NULL)
-	{
-		return (NULL);
-	}
+	e = 0;
 	i = 0;
-	j = 0;
-	k = 0;
 
-	while (i < strLength)
+	for (r = 0; str[r] != '\0'; r++)
 	{
-		if (str[i] != ' ')
+		if (str[r] == ' ')
 		{
-			j = i;
-			while (j < strLength && str[j] != ' ')
-			{
-				j++;
-			}
-			wordLength = j - i;
-			words[k] = (char *)malloc((wordLength + 1) * sizeof(char));
-
-			if (words[k] == NULL)
-			{
-				for (m = 0; m < k; m++)
-				{
-					free(words[m]);
-				}
-				free(words);
-				return (NULL);
-			}
-			strncpy(words[k], str + i, wordLength);
-			words[k][wordLength] = '\0';
-			k++;
-			i = j;
+			e = 0;
 		}
-		else
+		else if (e == 0)
 		{
+			e = 1;
 			i++;
 		}
 	}
-	words[wordCount] = NULL;
-	return (words);
+	return (i);
+}
+
+/**
+ * strtow - test function
+ * @str: arg
+ * Description: a function that splits a string into words
+ * Return: result
+ */
+char **strtow(char *str)
+{
+	int a, b, i;
+	int u, x, y, z;
+	char **table, *lmn;
+
+	i = 0;
+	b = 0;
+
+	while (*(str + u))
+	{
+		u++;
+	}
+	x = word_count(str);
+
+	if (x == 0)
+	{
+		return (NULL);
+	}
+	table = (char **) malloc(sizeof(char *) * (x + 1));
+
+	if (table == NULL)
+	{
+		return (NULL);
+	}
+	for (a = 0; a <= u; a++)
+	{
+		if (str[a] == ' ' || str[a] == '\0')
+		{
+			if (i)
+			{
+				z = a;
+				lmn = (char *) malloc(sizeof(char) * (i + 1));
+
+				if (lmn == NULL)
+				{
+					return (NULL);
+				}
+				while (y < z)
+				{
+					*lmn++ = str[y++];
+				}
+				*lmn = '\0';
+
+				table[b] = lmn - i;
+				b++;
+				i = 0;
+			}
+		}
+		else if (i++ == 0)
+		{
+			y = a;
+		}
+	}
+		table[b] = NULL;
+		return (table);
 }
