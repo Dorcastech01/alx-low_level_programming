@@ -19,78 +19,60 @@ int word_count(char *str)
 	for (r = 0; str[r] != '\0'; r++)
 	{
 		if (str[r] == ' ')
-		{
 			e = 0;
-		}
 		else if (e == 0)
 		{
 			e = 1;
 			i++;
 		}
 	}
+
 	return (i);
 }
-
 /**
- * strtow - test function
+ * strtow - main function
  * @str: arg
  * Description: a function that splits a string into words
  * Return: result
  */
 char **strtow(char *str)
 {
-	int a, b, i;
-	int u, x, y, z;
-	char **table, *lmn;
+	char **m, *n;
+	int a, b = 0, w = 0, x, r = 0, y, z;
 
-	i = 0;
-	b = 0;
-
-	while (*(str + u))
-	{
-		u++;
-	}
+	while (*(str + w))
+		w++;
 	x = word_count(str);
-
 	if (x == 0)
-	{
 		return (NULL);
-	}
-	table = (char **) malloc(sizeof(char *) * (x + 1));
 
-	if (table == NULL)
-	{
+	m = (char **) malloc(sizeof(char *) * (x + 1));
+	if (m == NULL)
 		return (NULL);
-	}
-	for (a = 0; a <= u; a++)
+
+	for (a = 0; a <= w; a++)
 	{
 		if (str[a] == ' ' || str[a] == '\0')
 		{
-			if (i)
+			if (r)
 			{
 				z = a;
-				lmn = (char *) malloc(sizeof(char) * (i + 1));
-
-				if (lmn == NULL)
-				{
+				n = (char *) malloc(sizeof(char) * (r + 1));
+				if (n == NULL)
 					return (NULL);
-				}
 				while (y < z)
-				{
-					*lmn++ = str[y++];
-				}
-				*lmn = '\0';
-
-				table[b] = lmn - i;
+					*n++ = str[y++];
+				*n = '\0';
+				m[b] = n - r;
 				b++;
-				i = 0;
+				r = 0;
 			}
 		}
-		else if (i++ == 0)
-		{
+		else if (r++ == 0)
 			y = a;
-		}
 	}
-		table[b] = NULL;
-		return (table);
+
+	m[b] = NULL;
+
+	return (m);
 }
