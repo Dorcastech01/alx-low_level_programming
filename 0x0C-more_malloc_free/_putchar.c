@@ -1,22 +1,13 @@
-#include "main.h"
 #include <unistd.h>
-#include <stdio.h>
+
 /**
- * main - main block
- * Description: a program to print a function
- * Return: 0
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
-int main(void)
+int _putchar(char c)
 {
-	int i = 0;
-	char ch[8] = "_putchar";
-
-	while (i < 8)
-	{
-		putchar(ch[i]);
-		i++;
-	}
-
-	putchar('\n');
-	return (0);
+	return (write(1, &c, 1));
 }
