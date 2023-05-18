@@ -25,3 +25,26 @@ int multiply(int num1, int num2)
 	}
 	return (result);
 }
+
+/**
+ * isNumber - test function
+ * @str: arg passed
+ * Description: test fuction
+ * Return: result
+ */
+int isNumber(char *str)
+{
+	int i;
+
+	i = 0;
+
+	while (str[i] != '\0')
+	{
+		if (str[i] < '0' || str[i] > '9')
+		{
+			return (0);
+		}
+		i++;
+	}
+	return (1);
+}
