@@ -1,5 +1,5 @@
 #include "function_pointers.h"
-
+#include <stdio.h>
 /**
  * print_name - main function
  * @name: user input
@@ -9,9 +9,10 @@
 
 void print_name(char *name, void (*f)(char *))
 {
-	if (name && f)
+	if (name == NULL || f == NULL)
 	{
-		f(name);
+		return;
 	}
+	f(name);
 }
 
