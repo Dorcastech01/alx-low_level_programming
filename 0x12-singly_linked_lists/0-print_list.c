@@ -16,7 +16,7 @@ size_t print_list(const list_t *h)
 {
 	size_t eri = 0;
 
-	while (h != NULL)
+	while (h)
 	{
 		if (h->str != NULL)
 			printf("%s\n", h->str);
