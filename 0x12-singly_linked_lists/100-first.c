@@ -9,11 +9,6 @@
 
 void all_words(void)
 {
-	char *h, *p;
-
-	h = "You're beat! and yet, you must allow,";
-	p = "I bore my house upon my back!";
-
-	printf("%s\n", h);
-	printf("%s\n", p);
+	printf("You're beat! and yet, you must allow,\n");
+	printf("I bore my house upon my back!\n");
 }
