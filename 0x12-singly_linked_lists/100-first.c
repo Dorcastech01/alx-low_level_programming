@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+void all_words(void)__attribute__ ((constructor));
 /**
  * all_words - main function
  * Description: it prints a string before
