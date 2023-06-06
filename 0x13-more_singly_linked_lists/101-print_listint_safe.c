@@ -9,6 +9,34 @@
 
 size_t print_listint_safe(const listint_t *head)
 {
+	const listint_t *first = head;
+	const listint_t *second = head;
+	size_t number = 0;
+
+	while (first && second && second->next)
+	{
+		printf("[%p] %d\n", (void *)first, first->n);
+		number++;
+		first = first->next;
+		second = second->next->next;
+
+		if (first == second)
+		{
+			printf("-> [%p] %d\n", (void *)first, first->n);
+			exit(98);
+		}
+	}
+
+	if (first != second)
+	{
+		printf("[%p] %d\n", (void *)first, first->n);
+		number++;
+	}
+	return (number);
+}
+
+/**	
+ * {
 	long int first;
 	size_t second;
 
@@ -32,3 +60,4 @@ size_t print_listint_safe(const listint_t *head)
 	}
 	return (second);
 }
+*/
