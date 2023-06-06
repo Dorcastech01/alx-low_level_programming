@@ -9,23 +9,23 @@
 
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *new_element;
-	size_t number;
+	long int first;
+	size_t second;
 
-	new_element = head;
-	number = 0;
+	second = 0;
 
-	while (new_element != NULL)
+	while (head)
 	{
-		printf("[%p] %d\n", (void *)new_element, new_element->n);
-		number++;
-		new_element = new_element->next;
-
-		if (new_element >= new_element->next)
+		first = head - head->next;
+		second++;
+		printf("[%p] %d\n", (void *)head, head->n);
+		if (first > 0)
+			head = head->next;
+		else
 		{
-			printf("-> [%p] %d\n", (void *)new_element, new_element->n);
-			exit(98);
+			printf("-> [%p] %d\n", (void *)head->next, head->next->n);
+			break;
 		}
 	}
-	return (number);
+	return (second);
 }
