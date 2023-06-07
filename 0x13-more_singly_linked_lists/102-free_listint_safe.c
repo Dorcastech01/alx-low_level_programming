@@ -1,37 +1,96 @@
 #include "lists.h"
 
+
+size_t dd(listint_t *head);
+size_t free_listint_safe(listint_t **h);
+
 /**
- * free_listint_safe - this is the main function
- * @h: the arg for the function
- * Description: a function that frees a linked list
- * Return: it returns the size of the list that was freed
+ * dd - this is a function for the code
+ * @head: the head
+ * Description: a function that counts the number of elements
+ * in a linked list
+ * Return: it returns the result
  */
-
-size_t free_listint_safe(listint_t **h)
+size_t dd(listint_t *head)
 {
-	size_t number;
-	listint_t *new_element;
-	listint_t *next;
+	listint_t *first, *second;
+	size_t third;
 
-	if (h == NULL || *h == NULL)
+	third = 1;
+
+	if (head == NULL || head->next == NULL)
 		return (0);
 
-	number = 0;
-	new_element = *h;
-	next = NULL;
+	first = head->next;
+	second = (head->next)->next;
 
-	while (new_element != NULL)
+	while (second)
 	{
-		next = new_element->next;
-		free(new_element);
-		new_element = next;
-		number++;
-
-		if (new_element == *h)
+		if (first == second)
 		{
-			*h = NULL;
-			return (number);
+			first = head;
+			while (first != second)
+			{
+				third++;
+				first = first->next;
+				second = second->next;
+			}
+
+			first = first->next;
+			while (first != second)
+			{
+				third++;
+				first = first->next;
+			}
+
+			return (third);
+		}
+
+		first = first->next;
+		second = (second->next)->next;
+	}
+
+	return (0);
+}
+
+
+
+/**
+ * free_listint_safe - this is the main function
+ * @h: an arg for the function
+ * Description: a function that frees a linked list
+ * Return: it returns the size of the freed list
+ */
+size_t free_listint_safe(listint_t **h)
+{
+	listint_t *erio;
+	size_t third, number;
+
+	third = dd(*h);
+
+	if (third == 0)
+	{
+		for (; h != NULL && *h != NULL; third++)
+		{
+			erio = (*h)->next;
+			free(*h);
+			*h = erio;
 		}
 	}
-	return (number);
+
+	else
+	{
+		for (number = 0; number < third; number++)
+		{
+			erio = (*h)->next;
+			free(*h);
+			*h = erio;
+		}
+
+		*h = NULL;
+	}
+
+	h = NULL;
+
+	return (third);
 }
