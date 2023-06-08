@@ -13,18 +13,19 @@
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int converted;
-	size_t total_string, counter;
-
-	converted = 0;
-	total_string = strlen(b);
-	counter = 0;
+	size_t counter;
 
 	if (b == NULL)
 		return (0);
-	for (counter = 0; counter < total_string; counter++)
+
+	converted = 0;
+	counter = 0;
+
+	for (counter = 0; b[counter] != '\0'; counter++)
 	{
 		if (b[counter] != '0' && b[counter] != '1')
 			return (0);
+
 		converted <<= 1;
 
 		converted += (b[counter] - '0');
