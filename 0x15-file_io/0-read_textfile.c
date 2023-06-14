@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 
 /**
  * read_textfile - this is the main function
@@ -12,41 +13,37 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *dir;
 	char *loc;
-	ssize_t counter, eri, r;
+	int dir;
+	int counter;
+	int answer;
 
-	if (filename == NULL)
-		return (0);
+	loc = malloc(sizeof(*loc) * (letters + 1));
 
-	dir = fopen(filename, "r");
-
-	if (dir == NULL)
-		return (0);
-
-	loc = (char *)malloc(sizeof(char) * (letters + 1));
-
-	if (loc == NULL)
-	{
-		fclose(dir);
-		return (0);
-	}
-	counter = fread(loc, sizeof(char), letters, dir);
-
-	if (ferror(dir))
+	if (filename == NULL || loc == NULL)
 	{
 		free(loc);
-		fclose(dir);
 		return (0);
 	}
+
+	dir = open(filename, O_RDONLY);
+
+	if (dir == -1)
+		return (0);
+
+	counter = read(dir, loc, letters);
+
+	if (counter == -1)
+		return (0);
+
 	loc[counter] = '\0';
-	eri = 0;
-	r = loc[eri];
 
-	for (eri = 0; eri < counter; eri++)
-		_putchar(r);
+	answer = write(STDOUT_FILENO, loc, counter);
+
+	if (answer != counter)
+		return (0);
+
 	free(loc);
-	fclose(dir);
+	close(dir);
 	return (counter);
-
 }
